@@ -1,0 +1,21 @@
+{
+    "name": "Python: Django",
+    "type": "python",
+    "request": "launch",
+    "program": "${workspaceFolder}/manage.py",
+    "console": "integratedTerminal",
+    "args": [
+        "runserver",
+        "--noreload",
+        "--nothreading"
+    ],
+    "env": {},
+    "envFile": "${workspaceFolder}/.env",
+    "debugOptions": [
+        "WaitOnAbnormalExit",
+        "WaitOnNormalExit",
+        "RedirectOutput",
+        "DjangoDebugging"
+    ],
+    "django": true
+}

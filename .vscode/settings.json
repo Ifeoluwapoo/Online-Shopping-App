@@ -1,0 +1,16 @@
+{
+    "python.pythonPath": "C:\\Users\\New User\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+   //"python.pythonPath": "/path/to/your/venv/bin/python",
+    //Added Libraries
+    //"team.showWelcomeMessage": false,
+    "editor.formatOnSave": true,
+    "python.linting.pep8Enabled": false,
+    "python.linting.pylintPath": "/path/to/pylint",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+
+}
