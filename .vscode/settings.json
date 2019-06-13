@@ -5,7 +5,7 @@
     //"team.showWelcomeMessage": false,
     "editor.formatOnSave": true,
     "python.linting.pep8Enabled": false,
-    "python.linting.pylintPath": "/path/to/pylint",
+    //"python.linting.pylintPath": "/path/to/pylint",
     "python.linting.pylintArgs": [
         "--load-plugins",
         "pylint_django"

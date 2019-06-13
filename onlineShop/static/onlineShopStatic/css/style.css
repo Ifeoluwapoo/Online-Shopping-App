@@ -4,6 +4,32 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
+/*Added Style*/
+
+.dropdown-container{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	border: 2px solid;
+	width: auto;
+}
+
+.dropdown-menu.columns-3.margin-left-9{
+	margin-left: -9%;
+}
+.dropdown-menu.columns-3.margin-left-49{
+	margin-left: -49%;
+}
+.dropdown-menu.columns-3.margin-left-232{
+	margin-left: -232%;
+}
+.dropdown-menu.columns-3.margin-left-392{
+	margin-left: -392%;
+}
+
+/*End of added Style*/
+
 html, body{
     font-size: 100%;
 	background:	#fff;
@@ -413,7 +439,8 @@ ul.multi-column-dropdown h6 {
     background: #3c43a4;
     text-align: center;
 }
-.dropdown-menu.columns-3 {
+
+ .dropdown-menu.columns-3 {
     min-width:900px;
     padding: 30px 30px;
 	left: -130%;
@@ -1043,12 +1070,12 @@ li.w3pages .dropdown-menu > li > a:hover{
 	position: relative;
 	overflow: hidden;
 }
-.wmuSlider .wmuSliderWrapper article img {
-	/*--max-width: 100%;
+/*.wmuSlider .wmuSliderWrapper article img {
+	--max-width: 100%;
 	width: auto;
 	height: auto;
-	display:block;--*/
-}
+	display:block;
+}--*/
 /* Default Skin */
 .wmuSliderPagination {
 	z-index: 2;

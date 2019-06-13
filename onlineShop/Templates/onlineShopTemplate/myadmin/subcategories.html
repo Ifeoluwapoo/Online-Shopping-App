@@ -1,0 +1,5 @@
+<!--Use d if block-->
+<option value="">Select Sub-Category</option>
+{% for subcategory in subcategories %}
+<option value="{{subcategory.pk}}">{{ subcategory.name }}</option>
+{% endfor %}

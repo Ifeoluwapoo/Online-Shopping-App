@@ -27,9 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-#Collect Static command
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -57,6 +54,7 @@ ROOT_URLCONF = 'online_web_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        #[os.path.join(BASE_DIR, 'templates')]
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -121,3 +119,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "onlineShop", "static", "onlineShopStatic"),
+]
+
+MEDIA_URL = '/media/'
+
+#Collect Static command
+STATIC_ROOT = os.path.join(BASE_DIR, "static_files", "static_root")
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "static_files", "media_root")

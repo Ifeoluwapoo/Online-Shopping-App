@@ -13,17 +13,29 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+#from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+# ]
+ 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-]
-
-urlpatterns = [
     path("", include("onlineShop.urls")),
 ]
 
-urlpatterns += staticfiles_urlpatterns()
+
+if settings.DEBUG:
+    urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+#urlpatterns += staticfiles_urlpatterns(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

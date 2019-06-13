@@ -1,0 +1,7 @@
+<option value="" name="category">Select Category</option>
+        {% for category in categories %}
+<option value="{{ category.pk }}" >{{ category.name }}</option>
+        {% endfor %}
+
+
+<!--{% if category.pk == category %} selected{% endif %}-->

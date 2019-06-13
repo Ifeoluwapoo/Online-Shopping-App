@@ -1,0 +1,12 @@
+/*Adding border red to error class*/
+.error input, .error select {
+    border: 2px red solid;
+}
+
+.margin_top_50{
+	margin-top: 50px;
+}
+
+.margin_top_30{
+	margin-top: 30px;
+}
