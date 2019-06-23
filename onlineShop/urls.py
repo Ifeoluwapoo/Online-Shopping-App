@@ -13,6 +13,10 @@ urlpatterns = [
     path("contact/", views.contactPage, name="contact"),
     url(r'^myadmin/$', views.AdminProductListView.as_view(), name='product_list'),
     url(r'^myadmin/addProduct/$', views.AddProductView.as_view(), name='product_add'),
+    url(r'^myadmin/viewProduct/(?P<pk>\d+)/$', views.ViewProduct, name='product_view'),
+    url(r'^myadmin/editProduct/(?P<pk>\d+)/$', views.UpdateProduct, name='product_edit'),
+    url(r'^myadmin/deleteProduct/(?P<pk>\d+)/$', views.DeleteProduct, name='product_delete'),
+    
 
     path('ajax/load_categories/', views.load_categories, name='ajax_load_categories'),
     #path('ajax/load_subcategories/', views.load_subcategories, name='ajax_load_subcategories'),

@@ -1,0 +1,52 @@
+
+
+{% load static %}
+        <style>
+        <link href="{% static 'onlineShopStatic/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{% static 'onlineShopStatic/css/utility.css' %}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{% static 'onlineShopStatic/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+        </style>
+
+
+<div class="modal-dialog modal-sm">
+    <div class="modal-content">
+          <form id="product_delete_form" method='post' class="form" role="form" action="{% url 'product_delete' form.instance.pk %}" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                     <h4 class="modal-title">Confirm Product Delete</h4>
+              </div>
+       <div class="modal-body">
+            <p class="lead">Are you sure you want to delete the product <strong>{{ product.name }}</strong>?</p>
+        </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-danger">Delete Product</button>
+      </div>
+</form>
+                            <script src="{% static 'onlineShopStatic/js/jquery.min.js' %}"></script>
+                            <script type="text/javascript" src="{% static 'onlineShopStatic/js/bootstrap-3.1.1.min.js' %}"></script> 
+                            <script type="text/javascript" src="{% static 'onlineShopStatic/js/modalScripts.js' %}"></script>
+<script>
+//$("#book-table").on("click", ".js-delete-book", loadForm);
+//$("#modal-book").on("submit", ".js-book-delete-form", saveForm);
+
+
+
+
+
+
+
+
+
+
+//$(document).ready(function(){
+//        $('#delete').click(function(){
+//            $('#delModal').modal('show');
+//        });
+//    });
+</script>
+</div>
+</div>

@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm, Select, TextInput, NumberInput, Textarea, FileInput, DecimalField
+from django.forms import ModelForm, Select, TextInput, NumberInput, Textarea, FileInput, DecimalField, ImageField
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from .models import Category, Product, SubCategory, MainCategory
@@ -78,12 +78,6 @@ class RegisterForm(forms.Form):
         if password2 != password:
             raise forms.ValidationError("Password must match")
         return data
-
-# def __init__(self,*args,**kwargs):
-#         myMainCat = kwargs.pop("main_category")     # client is the parameter passed from views.py
-#         super(AddProductForm, self).__init__(*args,**kwargs)
-#         self.fields['category'] = forms.ChoiceField(label="Sniffer", choices=[(x.plug_ip, x.MY_DESCRIPTIVE_FIELD) for x in Sniffer.objects.filter(client = myClient)])
-
 
 class AddProductForm(forms.ModelForm):
     error_css_class = 'error'
@@ -210,6 +204,157 @@ def clean_productName(self):
         if qs.exists():
             raise forms.ValidationError("Product Already Exists")
             return productName
+
+
+class EditProductForm(forms.ModelForm):
+    error_css_class = 'error'
+    required_css_class = 'required'
+   
+    class Meta:
+        model = Product
+        exclude = ['slug','available', 'created_at', 'updated_at', 'is_deleted', 'deleted_at']
+        widgets = {
+
+            'main_category': Select(attrs={
+                         "class": "form-control", 
+                        "name": "mainCategory",
+                        "id":   "id_mainCategory",
+                        
+                     }),
+
+            'category': Select(attrs={
+                         "class": "form-control", 
+                         "name": "category",
+                         "id":   "id_category",
+                        
+                     }),
+                     
+
+            'sub_category': Select(attrs={
+                         "class": "form-control", 
+                         "name": "subCategory",
+                         "id":   "id_subcategory",
+                        
+                     }),
+
+            'name': TextInput(attrs={
+                         "class": "form-control", 
+                         "placeholder": "Product Name",
+                         "name": "productName",
+                         "id": "id_productName",
+                        
+                     }),
+
+            'brand': TextInput(attrs={
+                         "class": "form-control", 
+                         "placeholder": "Enter Product Brand",
+                         "name": "brand",
+                         "id": "id_brand",
+                        
+                     }),
+
+            'quantity': NumberInput(attrs={
+                         "class": "form-control", 
+                         "placeholder": "Enter Product Quantity",
+                         "name": "quantity",
+                         "id": "id_quantity",
+                        
+                     }),
+
+            'description': Textarea(attrs={
+                         'class': 'form-control',
+                         "placeholder": "Enter Product Description",
+                         "name": "description",
+                         "id": "id_description",
+                        
+                     }),
+
+            'manufacturer': TextInput(attrs={
+                          "class": "form-control", 
+                          "placeholder": "Enter Product Manufacturer",
+                          "name": "manufacturer",
+                          "id": "id_manufacturer",
+                        
+                     }),
+
+            'price': NumberInput(attrs={
+                         "class": "form-control", 
+                         "placeholder": "Enter Product Price",
+                         "name": "price",
+                         "id": "id_price",
+                        
+                     }),
+
+             #'image' : FileInput(widget=PictureWidget),
+
+            # 'image': FileInput(attrs={
+            #              "name": "image",
+            #              "id": "id_image", 
+                        
+            #          }),
+                
+
+            #'image': ImageField(),
+                
+        }
+
+
+class ViewProductForm(forms.ModelForm):
+    error_css_class = 'error'
+    required_css_class = 'required'
+
+   
+    class Meta:
+        model = Product
+        exclude = ['slug','available', 'created_at', 'updated_at', 'is_deleted', 'deleted_at']
+        widgets = {
+
+            'main_category': Select(attrs={
+                         "class": "form-control", 
+                     }),
+
+            'category': Select(attrs={
+                         "class": "form-control", 
+                     }),
+                     
+
+            'sub_category': Select(attrs={
+                         "class": "form-control", 
+                     }),
+
+            'name': TextInput(attrs={
+                         "class": "form-control", 
+                     }),
+
+            'brand': TextInput(attrs={
+                         "class": "form-control", 
+                     }),
+
+            'quantity': NumberInput(attrs={
+                         "class": "form-control", 
+                     }),
+
+            'description': Textarea(attrs={
+                         'class': 'form-control',
+                     }),
+
+            'manufacturer': TextInput(attrs={
+                          "class": "form-control", 
+                     }),
+
+            'price': NumberInput(attrs={
+                         "class": "form-control", 
+                        
+                     }),
+
+            # 'image': FileInput(attrs={
+            #              "name": "image",
+            #              "id": "id_image", 
+                        
+            #          }),
+                
+        }
+
 
 
 # class AddProductForm(forms.ModelForm):

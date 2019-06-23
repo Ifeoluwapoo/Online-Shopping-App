@@ -1,0 +1,63 @@
+
+{% load static %}
+        <style>
+        <link href="{% static 'onlineShopStatic/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{% static 'onlineShopStatic/css/utility.css' %}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{% static 'onlineShopStatic/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+        </style>
+        
+    
+    <!-- The Modal 
+           	 <div class="modal modal fade" id="myModalEdit">-->
+                
+                    <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                
+                                 <form id="product_update_form" method='post' class="form" role="form" action="{% url 'product_edit' form.instance.pk %}" enctype="multipart/form-data">
+                                    <!-- Modal Header -->
+                                        <div class="modal-header">
+                                                <h4 class="modal-title modal_text_decorator" id="myModalLabel"> Edit Product {{ product.name }}</h4>
+                                                     <button type="button" class="close modal_button_close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                   
+                                        </div>
+                                       
+                                    <!-- Modal body -->
+                                        <div class="modal-body">
+                                                    {% csrf_token %}
+                                                {{ form.non_field_errors }}
+                                                    <div class="form-group">
+                                                        {% for field in form %}
+                                                                <div class="form-group col-md-6 margin_top_25">
+                                                                        {% if field.errors %}
+                                                                             <ul class="form-errors">
+                                                                                {% for error in field.errors %}
+                                                                                    <li><span class="fa fa-exclamation-triangle"></span> <strong>{{ error|escape }}</strong></li>
+                                                                                {% endfor %}
+                                                                            </ul>
+                                                                        {% endif %}
+                                                                    {{ field.label_tag }} {{ field }} 
+                                                                            
+                                                                        {% if field.help_text %}<div class="form-helptext">{{ field.help_text }}</div>{% endif %}
+                                                                </div>
+                                                            
+                                                        {% endfor %}
+                                                    </div>
+
+                                    <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <div class="row">
+                                              <div class=" col-md-7 float-left">
+                                                 <button type="submit" class="btn btn-success">Save</button>
+                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              </div>
+                                            </div>
+                                        </div>
+                                </form>
+
+                            <script src="{% static 'onlineShopStatic/js/jquery.min.js' %}"></script>
+                            <script type="text/javascript" src="{% static 'onlineShopStatic/js/bootstrap-3.1.1.min.js' %}"></script> 
+                            <script type="text/javascript" src="{% static 'onlineShopStatic/js/modalScripts.js' %}"></script>
+
+                            </div>
+                    </div>
+            <!--</div>-->

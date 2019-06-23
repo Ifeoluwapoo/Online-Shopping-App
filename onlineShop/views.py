@@ -2,19 +2,23 @@
 from django.http import HttpResponse
 from django.http import Http404
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import JsonResponse
+from django.template.loader import render_to_string
+from django.forms.models import model_to_dict
+
 
 from datetime import datetime
 from .models import Category, Product, MainCategory, SubCategory
-from .forms import ContactForm, LoginForm, RegisterForm, AddProductForm
+from .forms import ContactForm, LoginForm, RegisterForm, AddProductForm, EditProductForm, ViewProductForm
 
 
 def indexPage(request, category_slug=None):
     category = None
     categories = Category.objects.all()
-    products = Product.objects.filter(available=True)
+    products = Product.objects.filter(available=True, is_deleted = False)
     # if category_slug:
     #     category = get_object_or_404(Category, slug=category_slug)
     #     products = Product.objects.filter(category=category)
@@ -48,14 +52,6 @@ def productDetailPage(request, id, slug):
 def contactPage(request):
     return render(request, "onlineShopTemplate/contact.html")
 
-
-# class CreateProductView(CreateView): # new
-#     model = Product
-#     form_class = AddProductForm
-#     template_name = 'onlineShopTemplate/myadmin/addProduct.html'
-#     success_url = reverse_lazy('product_list')
-
-
 class AddProductView(CreateView):
     model = Product
     form_class = AddProductForm
@@ -79,11 +75,95 @@ def load_categories(request):
 
 class AdminProductListView(ListView):
     model = Product
-    #queryset = Product.objects.all()
     template_name = "onlineShopTemplate/myadmin/listProducts.html"
     context_object_name = 'products'  # Default: object_list
     paginate_by = 10
-    queryset = Product.objects.all() 
+    queryset = Product.objects.filter(is_deleted=False).order_by('-created_at')
+#   Product.objects.all();
+     
+def ViewProduct(request, pk):
+    
+    # Either render only the modal content, or a full standalone page
+    if request.is_ajax():
+        template_name = 'onlineShopTemplate/myadmin/viewProduct.html'
+    else:
+        template_name = None
+
+    product = get_object_or_404(Product, pk=pk)
+
+    form = ViewProductForm(request.FILES or None, instance=product)
+    form.fields['main_category'].disabled = True
+    form.fields['category'].disabled = True
+    form.fields['sub_category'].disabled = True
+    form.fields['name'].disabled = True
+    form.fields['brand'].disabled = True
+    form.fields['quantity'].disabled = True
+    form.fields['description'].disabled = True
+    form.fields['manufacturer'].disabled = True
+    form.fields['price'].disabled = True
+    form.fields['image'].disabled = True
+    return render(request, template_name, {
+        'product': product,
+        'form': form,
+    })  
+# instance=request.user.userprofilemodel
+
+def UpdateProduct(request, pk):
+    # Either render only the modal content, or a full standalone page
+    if request.is_ajax():
+        template_name = 'onlineShopTemplate/myadmin/editProduct.html'
+    else:
+        template_name = None
+
+    product = get_object_or_404(Product, pk=pk)
+
+    if request.method == 'POST':
+        form = EditProductForm(request.POST or None, request.FILES or None,  instance=product)
+        if form.is_valid():
+            form.save()
+
+    else:
+        form = EditProductForm(instance=product)
+        print(form)
+
+    return render(request, template_name, {
+        'product': product,
+        'form': form,
+    })
+
+def DeleteProduct(request, pk):
+    if request.is_ajax():
+        template_name = 'onlineShopTemplate/myadmin/deleteProduct.html'
+
+    product = get_object_or_404(Product, pk=pk)
+    form = EditProductForm(instance=product)
+    if request.method == 'POST':
+        product.is_deleted = True
+        product.deleted_at = datetime.now()
+        product.save()
+        return redirect('product_list')
+
+    return render(request, template_name, {
+        'product': product,
+        'form': form,
+    })
+
+
+
+# class UpdateProductView(UpdateView):ViewProductForm
+#     model = Product
+#     form_class = EditProductForm
+#     template_name = 'onlineShopTemplate/myadmin/editProduct.html'
+#     print(Product.id)
+
+#     def dispatch(self, *args, **kwargs):
+#         self.id = kwargs['pk']
+#         return super(EditProductView, self).dispatch(*args, **kwargs)
+
+#     def form_valid(self, form):
+#         form.save()
+#         product = Product.objects.get(id=self.id)
+#         return HttpResponse(redirect('product_list', {'product': product}))
 
 # class PersonUpdateView(UpdateView):
 #     model = Product
