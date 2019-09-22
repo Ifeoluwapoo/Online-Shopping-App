@@ -99,7 +99,7 @@ class AddProductForm(forms.ModelForm):
    
     class Meta:
         model = Product
-        exclude = ['slug','available', 'created_at', 'updated_at']
+        exclude = ['slug','available', 'created_at', 'updated_at', 'is_deleted', 'deleted_at']
         widgets = {
 
             'category': Select(attrs={

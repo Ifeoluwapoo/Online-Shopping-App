@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'onlineShop',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -54,8 +55,8 @@ ROOT_URLCONF = 'online_web_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        #[os.path.join(BASE_DIR, 'templates')]
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'onlineShop/Templates/onlineShopTemplate/')],
+        #'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,3 +130,9 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static_files", "static_root")
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "static_files", "media_root")
+
+#Login Redirect
+LOGIN_REDIRECT_URL = 'product_list'
+
+#cart session_id
+CART_SESSION_ID = 'cart'

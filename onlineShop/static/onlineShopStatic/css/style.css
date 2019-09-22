@@ -248,9 +248,9 @@ a.simpleCart_empty {
 #w3lssbmincart {
     display: none;
     position: fixed;
-    left: 68%;
-    top:16%;
-	width: 420px;
+    left: 65%;
+    top: 16%;
+    width: 460px;
 } 
 .sbmincart-showing #w3lssbmincart {
     display: block;
@@ -3737,7 +3737,7 @@ td.invert-image a img {
 	} 
 	ul.multi-column-dropdown h6 {
 		font-size: 1.5em;
-		color: #fff;
+		/*color: #fff;*/
 	}
 	.hidden-xs {
 		display: block !important;
@@ -3748,9 +3748,9 @@ td.invert-image a img {
 	.multi-column-dropdown li a i { 
 		margin: 0.8em 0 0; 
 	}
-	.multi-column-dropdown li a { 
+	/*.multi-column-dropdown li a { 
 		color: #fff !important; 
-	}
+	}*/
 	.multi-column-dropdown li a:hover {
 		color: #ff5063 !important;
 	}

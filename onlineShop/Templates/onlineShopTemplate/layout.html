@@ -20,8 +20,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- //for-mobile-apps -->
 <!-- Custom Theme files -->
 <link href="{% static 'onlineShopStatic/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
-<link href="{% static 'onlineShopStatic/css/style.css' %}" rel="stylesheet" type="text/css" media="all" /> 
+<link href=" {% static 'onlineShopStatic/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static 'onlineShopStatic/css/utility.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static 'onlineShopStatic/css/nav.css' %}" rel="stylesheet" type="text/css" media="all" />
 <link href="{% static 'onlineShopStatic/css/fasthover.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'onlineShopStatic/css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
 <link href="{% static 'onlineShopStatic/css/font-awesome.css' %}" rel="stylesheet"> 
@@ -137,7 +140,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 			<div class="w3l_logo">
-				<h1><a href="index.html">KemyDrey Store<span>Your stores. Your place.</span></a></h1>
+				<h1><a href="{%url 'index' %}">KemyDrey Store<span>Your stores. Your place.</span></a></h1>
 			</div>
 			<div class="search">
 				<input class="search_box" type="checkbox" id="search_box">
@@ -153,7 +156,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<form action="#" method="post" class="last"> 
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="display" value="1" />
-					<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+					<a href="{% url "cart:cart_detail" %}" class="w3view-cart" name="submit"><i class="fa fa-cart-arrow-down margin_top_9" aria-hidden="true"></i></a>
+					{% comment %} <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button> {% endcomment %}
 				</form>   
 			</div>  
 		</div>
@@ -178,7 +182,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<!-- Mega Menu -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Digitals <b class="caret"></b></a>
-							<ul class="dropdown-menu multi-column columns-3">
+							
+							<ul class="dropdown-container dropdown-menu multi-column columns-3">
 								<div class="row">
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
@@ -240,7 +245,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<li><a href="products1.html">Grinders</a></li>
 											<li><a href="products1.html">Utensils</a></li>
 											<li><a href="products1.html">Accessories<span>New</span></a></li>
-											<li><a href="products1.html"><i>Summer Store</i></a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
@@ -340,7 +344,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Others</h6>
-											<li><a href="products2.html">Tv</a></li>
+											<li><a href="products2.html">Toys</a></li>
 											<li><a href="products2.html">Camera</a></li>
 											<li><a href="products2.html">AC</a></li>
 											<li><a href="products2.html">Grinders</a></li>

@@ -20,6 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- Custom Theme files -->
 <link href="{% static 'onlineShopStatic/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
 <link href=" {% static 'onlineShopStatic/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static 'onlineShopStatic/css/nav.css' %}" rel="stylesheet" type="text/css" media="all" />
 <link href="{% static 'onlineShopStatic/css/fasthover.css' %}" rel="stylesheet" type="text/css" media="all" />
 <link href="{% static 'onlineShopStatic/css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
 <!-- //Custom Theme files -->
@@ -153,15 +154,45 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</form>
 				</div>
 			</div>
+			<!--Cart-->
 			<div class="cart cart box_1"> 
+
+					<!--<div id="id01" class="modal">  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span> 
+        <form class="modal-content animate" action="/action_page.php"> 
+            <div class="container"> 
+                <label><b>Email</b></label> 
+                <input type="text" placeholder="Enter Email" name="email" required> 
+  
+                <label><b>Password</b></label> 
+                <input type="password" placeholder="Enter Password" name="psw" required> 
+  
+                <label><b>Repeat Password</b></label> 
+                <input type="password" placeholder="Repeat Password" name="psw-repeat" required> 
+                <input type="checkbox"> Remember me 
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> 
+  
+                <div class="clearfix"> 
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> 
+                    <button type="submit" class="signupbtn">Sign Up</button> 
+                </div> 
+            </div> 
+        </form> 
+    </div> -->
 				<form action="#" method="post" class="last"> 
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="display" value="1" />
-					<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-				</form>   
+					<a href="{% url "cart:cart_detail" %}" class="w3view-cart" name="submit"><i class="fa fa-cart-arrow-down" style="margin-top:9px;" aria-hidden="true"></i></a>
+					{% comment %} <button class="w3view-cart"  type="submit" name="submit" value="" id="cartImg"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button> {% endcomment %}
+				</form> 	
+					{% comment %} <a href=# data-target="#my_modal" data-toggle="modal" class="identifyingClass" data-id="1">	</a> {% endcomment %}
+					
+				</div>
 			</div>  
 		</div>
 	</div>
+
+
 	<!-- //header -->
 	<!-- navigation -->
 	<div class="navigation">
@@ -178,7 +209,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div> 
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav">
-						<li><a href="{%url 'index' %}" class="act">Home</a></li>	
+						{% comment %} <li {% if not category %}class="selected"{% endif %}>
+								<a href="{% url "index" %}">All</a>
+						</li>
+									{% for c in maincategories %}
+										<li class="selected dropdown">
+											<a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+
+												<ul class="dropdown-container dropdown-menu multi-column columns-3">
+													<div class="row">
+														<div class="col-sm-3">
+															<ul class="multi-column-dropdown">
+
+																{% for d in categories %}
+																<h6>{{ d.name }}</h6>
+																{% endfor %}
+																	<li><a href="{%url 'products' %}">Desktops</a></li>
+															</ul>
+														</div>
+													</div>
+												</ul>			
+										</li>
+									{% endfor %} {% endcomment %}
+
+						
+	<li><a href="{%url 'index' %}" class="act">Home</a></li>	
 						<!-- Mega Menu -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Digitals <b class="caret"></b></a>
@@ -188,6 +243,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Computers</h6>
+													
 											<li><a href="{%url 'products' %}">Desktops</a></li>
 											<li><a href="{%url 'products' %}">Laptops <span>New</span></a></li> 
 											<li><a href="{%url 'products' %}">Others</a></li>
@@ -245,7 +301,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											<li><a href="products1.html">Grinders</a></li>
 											<li><a href="products1.html">Utensils</a></li>
 											<li><a href="products1.html">Accessories<span>New</span></a></li>
-											<li><a href="products1.html"><i>Summer Store</i></a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
@@ -362,7 +417,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 							</ul>
 						</li>
-
 					</ul>
 				</div>
 			</nav>
@@ -384,19 +438,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 				{% for product in products %}
                       <div class="col-md-3">
-                     <div class="thumbnail">
-                            <a href="{{ product.get_absolute_url }}">
+					  	
+                     <div class="thumbnail modal_body_right_cart simpleCart_shelfItem">
+                            <a href="#"> <!--<a href="{{ product.get_absolute_url }}">-->	
                                 <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto">
                             </a>
                             <div class="caption">
                                 <h3 class="text-center">
-                                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-										
+                                    <a href="#">{{ product.name }}</a>
+									<!--<a href="{{ product.get_absolute_url }}">{{ product.name }}</a>-->	
 								</h3>
-                                <p class="text-center">naira. {{ product.price }}</p>
+                                <p class="text-center" > # {{ product.price }}</p>
+								<div class="row">
+								<form action="#" method="post" class="col-md-6">
+									<input type="hidden" name="cmd" value="_cart">
+									<input type="hidden" name="add" value= "1"> 
+									<input type="hidden" name="w3ls_item" value="{{ product.name }}"> 
+									<input type="hidden" name="amount" value="{{ product.price }}">
+									<div class="row">  
+									<a class="w3ls-cart btn btn-primary col-md-offset-6" style="" href="{% url 'productDetails' product.id %}">More Detail</a>
+									{% comment %} <button type="submit" class="w3ls-cart" style="color: white; background-color:#ff5063;">Add to cart</button> {% endcomment %}
+									</div>
+								</form>
+								
+								<!--<form action="{% url "cart:cart_add" product.id %}" method="post">
+                                {% csrf_token %}
+                                {{ cart_product_form }}
+										style="padding: .2em 1.2em; border: 1px solid #c1c1c1; border-radius: 5px;"
+								   
+                                <input type="submit" value="add to cart" class="btn btn-primary">
+                            		</form>	
+									-->
                             </div>
+							</div>
                         </div>
+						
                       </div>
+					  
                   {% endfor %}
 
 
@@ -1219,6 +1297,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         	}
         });
     </script>  
-	<!-- //cart-js -->   
+	<!-- //cart-js 
+	<script> 
+        var modal = document.getElementById('id01'); 
+  
+        window.onclick = function(event) { 
+            if (event.target == modal) { 
+                modal.style.display = "none"; 
+            } 
+        } 
+    </script> 
+	-->   
 </body>
 </html>

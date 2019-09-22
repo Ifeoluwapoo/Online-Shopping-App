@@ -1,13 +1,16 @@
 # Create your views here.
-from django.http import HttpResponse
-from django.http import Http404
+from django.http import *
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
+from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.forms.models import model_to_dict
+from django.contrib.auth import authenticate, login, logout
+from cart.forms import CartAddProductForm
 
 
 from datetime import datetime
@@ -17,7 +20,12 @@ from .forms import ContactForm, LoginForm, RegisterForm, AddProductForm, EditPro
 
 def indexPage(request, category_slug=None):
     category = None
+   # mainCategory = None
+    #subCategory = None
     categories = Category.objects.all()
+    maincategories = MainCategory.objects.all()
+    subcategories = SubCategory.objects.all()
+    cart_product_form = CartAddProductForm()
     products = Product.objects.filter(available=True, is_deleted = False)
     # if category_slug:
     #     category = get_object_or_404(Category, slug=category_slug)
@@ -26,6 +34,9 @@ def indexPage(request, category_slug=None):
     context = {
         'category': category,
         'categories': categories,
+        'maincategories': maincategories,
+        'subcategories': subcategories,
+        'cart_product_form': cart_product_form,
         'products': products
     }
     return render(request, "onlineShopTemplate/index.html", context)
@@ -41,13 +52,20 @@ def product1Page(request):
 # Individual ProductDetail
 
 
-def productDetailPage(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug, available=True)
+def productDetailPage(request, pk):
+    product = get_object_or_404(Product, pk=pk, is_deleted=False, available=True)
+    cart_product_form = CartAddProductForm()
     context = {
-        'product': product
+        'product': product,
+        'cart_product_form': cart_product_form
     }
-    return render(request, "onlineShopTemplate/productDetails.html")
+    print(context)
+    return render(request, "onlineShopTemplate/productDetails.html", context)
 
+# class productDetailPage(DetailView):
+#     model = Product
+#     template_name = "onlineShopTemplate/productDetails.html"
+#     context_object_name = "product"
 
 def contactPage(request):
     return render(request, "onlineShopTemplate/contact.html")
@@ -73,13 +91,26 @@ def load_categories(request):
     return render(request, 'onlineShopTemplate/myadmin/categories.html', {'categories': category})
 
 
-class AdminProductListView(ListView):
+class AdminProductListView(LoginRequiredMixin, ListView):
+    login_url = 'login'
+    permission_denied_message = "You are not allowed here."
     model = Product
     template_name = "onlineShopTemplate/myadmin/listProducts.html"
     context_object_name = 'products'  # Default: object_list
     paginate_by = 10
     queryset = Product.objects.filter(is_deleted=False).order_by('-created_at')
 #   Product.objects.all();
+    # def get_login_url(self):
+    #     staff = self.request.user.is_staff
+    #     if staff.is_authenticated():
+    #     #if not self.request.user.is_staff:
+    #         # User is logged in but does not have permission
+    #         return redirect ('onlineShopTemplate/registration/login.html')
+    #     else:
+    #         # User is not logged in 
+    #          return "You are not allowed here."       
+           
+
      
 def ViewProduct(request, pk):
     
@@ -148,6 +179,39 @@ def DeleteProduct(request, pk):
         'form': form,
     })
 
+# def login_user(request):
+#     logout(request)
+#     username = password = ''
+#     if request.POST:
+#         username = request.POST['username']
+#         password = request.POST['password']
+
+#         user = authenticate(username=username, password=password)
+#         print(user)
+#         if user is not None:
+#             if user.is_active:
+#                 login(request, user)
+#                 return HttpResponseRedirect('onlineShopTemplate/myadmin/listProducts.html')
+#     #return render_to_response('onlineShopTemplate/registration/login.html', context_instance=RequestContext(request))
+#     return render_to_response('onlineShopTemplate/registration/login.html')
+    
+
+# def login_user(request):
+#     username = request.POST['username']
+#     password = request.POST['password']
+#     user = authenticate(username=username, password=password)
+#     if user is not None:
+#         if user.is_active:
+#             login(request, user)
+#             return redirect('onlineShopTemplate/myadmin/listProducts.html')
+#             # Redirect to a success page.
+#         else:
+#             # Return a 'disabled account' error message
+#             return redirect('onlineShopTemplate/myadmin/login.html')
+            
+#     else:
+#         # Return an 'invalid login' error message.
+#         return redirect('onlineShopTemplate/myadmin/login.html')
 
 
 # class UpdateProductView(UpdateView):ViewProductForm
