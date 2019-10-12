@@ -41,17 +41,337 @@ def indexPage(request, category_slug=None):
     }
     return render(request, "onlineShopTemplate/index.html", context)
 
-
 def aboutPage(request):
     return render(request, "onlineShopTemplate/about.html")
+
+
+#Loading product on the subcategory Desktop to the page
+def desktopPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Desktops')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/desktops.html", context)
+
+
+#Loading product on the subcategory laptop to the page
+def laptopPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Laptops')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/laptops.html", context)
+
+
+#Loading product on the subcategory computer Accessories to the page
+def compAccessPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Computer Access')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/computerAccess.html", context)
+
+
+#Loading product on the subcategory android to the page
+def androidPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Android Phones')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/androidPhones.html", context)
+
+
+#Loading product on the subcategory iosPhones to the page
+def iosPhonePage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'iPhones')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/iosPhones.html", context)
+
+
+#Loading product on the subcategory Phone Accessories to the page
+def phoneAccessPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Phone Access')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/phoneAccess.html", context)
+
+
+#Loading product on the subcategory Android Tablet to the page
+def androidTabletPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Android Tablet')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/androidTablets.html", context)
+
+
+#Loading product on the subcategory ios Tablets to the page
+def iosTabletPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'iOS Tablet')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/iosTablets.html", context)
+
+
+#Loading product on the subcategory Tablet Accessories to the page
+def tabletAccessPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Tablet Access')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/tabletAccess.html", context)
+
+
+#Loading product on the subcategory TV and Play Stations to the page
+def tv_playstationPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'TV & Play Stations')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/tv_playstations.html", context)
+
+
+#Loading product on the subcategory AC, Fridges, Freezers to the page
+def ac_fridgesPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'AC and Fridge')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/ac_fridges.html", context)
+
+
+#Loading product on the subcategory washing machines to the page
+def washingMachinePage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Washing Machine')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/washing_machines.html", context)
+
+
+#Loading product on the subcategory TV and Play Stations to the page
+def cookerPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Cookers')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/cookers.html", context)
+
+
+#Loading product on the subcategory Grinders and blenders to the page
+def grinderPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Grinder')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/grinders.html", context)
+
+
+#Loading product on the subcategory kitchen utensils to the page
+def utensilPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Utensils')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/utensils.html", context)
+
+
+#Loading product on the subcategory Power (Generators,) to the page
+def powerPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Power')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/powers.html", context)
+
+
+#Loading product on the subcategory house seater, dinning set to the page
+def house_seaterPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'House Seaters')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/house_seater.html", context)
+
+
+#Loading product on the subcategory washing machines to the page
+def electricAccessPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Washing Machine')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/electrical_access.html", context)
+
+
+#Loading product on the subcategory Men Bags to the page
+def menBagPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Men Bags')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/menBags.html", context)
+
+
+#Loading product on the subcategory Men Dresses to the page
+def menDressPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Men Dresses')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/menDresses.html", context)
+
+
+#Loading product on the subcategory Men Shoes to the page
+def menShoePage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Men Shoes')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/menShoes.html", context)
+
+#Loading product on the subcategory Women Bags to the page
+def womenBagPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Women Bags')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/womenBags.html", context)
+
+
+#Loading product on the subcategory Women Dresses to the page
+def womenDressPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Women Dresses')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/womenDresses.html", context)
+
+
+#Loading product on the subcategory Women Shoes to the page
+def womenShoePage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Women Shoes')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/womenShoes.html", context)
+
+
+#Loading product on the subcategory Beddings to the page
+def beddingsPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Beddings')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/beddings.html", context)
+
+
+#Loading product on the subcategory Women Accessories to the page
+def womenAccessoriesPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Women Access')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/women_access.html", context)
+
+
+#Loading product on the subcategory Men Accessories to the page
+def menAccessoriesPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Men Access')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/men_access.html", context)
+
+
+#Loading product on the subcategory New Born Dresses to the page
+def newbornDressPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'NewBorn Dresses')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/newborn_dress.html", context)
+
+
+#Loading product on the subcategory New Born shoes to the page
+def newbornShoePage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'NewBorn Shoes')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/newborn_shoes.html", context)
+
+
+#Loading product on the subcategory New Born Diapers to the page
+def newbornDiaperPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'NewBorn Diapers')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/newborn_diapers.html", context)
+
+
+#Loading product on the subcategory Kid Dresses to the page
+def kidsDressPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Kid Dresses')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/kid_dress.html", context)
+
+
+#Loading product on the subcategoryKid shoes to the page
+def kidsShoePage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Kid Shoes')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/kid_shoes.html", context)
+
+
+#Loading product on the subcategory Toys to the page
+def toyPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Kid Toy')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/toys.html", context)
+
+
+#Loading product on the subcategory New Born Accessories to the page
+def newbornAccessPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'NewBorn Access')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/newborn_Access.html", context)
+
+
+#Loading product on the subcategory Kid Accessories to the page
+def kidAccessPage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Kid Access')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/kid_access.html", context)
+
+
+#Loading product on the subcategory Baby Carriage to the page
+def babyCarriagePage(request):
+    product = Product.objects.filter(available=True, is_deleted = False, sub_category__name = 'Baby Carriage')
+    context = {
+        'subcategories': product,
+    }
+    return render(request, "onlineShopTemplate/items/carriage.html", context)
 
 
 def product1Page(request):
     return render(request, "onlineShopTemplate/products.html")
 
-# Individual ProductDetail
-
-
+# Individual ProductDetail added to cart
 def productDetailPage(request, pk):
     product = get_object_or_404(Product, pk=pk, is_deleted=False, available=True)
     cart_product_form = CartAddProductForm()
@@ -62,11 +382,8 @@ def productDetailPage(request, pk):
     print(context)
     return render(request, "onlineShopTemplate/productDetails.html", context)
 
-# class productDetailPage(DetailView):
-#     model = Product
-#     template_name = "onlineShopTemplate/productDetails.html"
-#     context_object_name = "product"
 
+#Displays the contact us Page
 def contactPage(request):
     return render(request, "onlineShopTemplate/contact.html")
 
@@ -78,14 +395,13 @@ class AddProductView(CreateView):
     success_url = reverse_lazy('product_list')
 
 
+#Loads subcategories and categories on the add product by the Admin (An ajax call)
 def load_categories(request):
     main_category = request.GET.get('main_category')
     category = Category.objects.filter(main_category_id=main_category).order_by('name')
-    #category = Category.objects.filter(main_category__name =main_category).order_by('name')
     category_name = request.GET.get('category')
     if category_name != None:
         sub_category = SubCategory.objects.filter(category_id =category_name).order_by('name')
-        #sub_category = SubCategory.objects.filter(category__name =category_name).order_by('name')
         return render(request, 'onlineShopTemplate/myadmin/subcategories.html', {"subcategories": sub_category})
     
     return render(request, 'onlineShopTemplate/myadmin/categories.html', {'categories': category})

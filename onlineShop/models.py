@@ -111,7 +111,7 @@ class Product(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     address = models.CharField(max_length=300, blank=True)
-    phoneNumber = models.PositiveIntegerField()
+    phoneNumber = models.PositiveIntegerField(max_length=15, blank=True, null=True)
     email = models.EmailField(max_length=70,blank=True, null= True, unique= True)
     #eproducts = models.ManyToManyField(Product, blank=True)
     #stripe_id = models.CharField(max_length=200, null=True, blank=True)

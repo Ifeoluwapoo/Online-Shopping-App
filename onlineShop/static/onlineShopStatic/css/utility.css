@@ -30,6 +30,18 @@
 	width: 40px;
 }
 
+.font_size_15px{
+	font-size: 15px !important;
+}
+
+.font_weight_900{
+		font-weight: 900 !important;
+}
+
+.font_weight_700{
+	font-weight: 700 !important;
+}
+
 .remove_decorator {
 	text-decoration: none;
 	text-decoration-style: none;

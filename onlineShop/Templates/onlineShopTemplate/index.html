@@ -20,6 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- Custom Theme files -->
 <link href="{% static 'onlineShopStatic/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
 <link href=" {% static 'onlineShopStatic/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href=" {% static 'onlineShopStatic/css/utility.css' %}" rel="stylesheet" type="text/css" media="all" />
 <link href=" {% static 'onlineShopStatic/css/nav.css' %}" rel="stylesheet" type="text/css" media="all" />
 <link href="{% static 'onlineShopStatic/css/fasthover.css' %}" rel="stylesheet" type="text/css" media="all" />
 <link href="{% static 'onlineShopStatic/css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
@@ -132,7 +133,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 	<script>
-		$('#myModal88').modal('show');
+	//	$('#myModal88').modal('show');
 	</script>  
 	<!-- header modal -->
 	<!-- header -->
@@ -182,7 +183,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<form action="#" method="post" class="last"> 
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="display" value="1" />
-					<a href="{% url "cart:cart_detail" %}" class="w3view-cart" name="submit"><i class="fa fa-cart-arrow-down" style="margin-top:9px;" aria-hidden="true"></i></a>
+					<a href="{% url "cart:cart_detail" %}" class="w3view-cart" name="submit"><i class="fa fa-cart-arrow-down margin_top_9" aria-hidden="true"></i></a>
 					{% comment %} <button class="w3view-cart"  type="submit" name="submit" value="" id="cartImg"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button> {% endcomment %}
 				</form> 	
 					{% comment %} <a href=# data-target="#my_modal" data-toggle="modal" class="identifyingClass" data-id="1">	</a> {% endcomment %}
@@ -232,8 +233,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										</li>
 									{% endfor %} {% endcomment %}
 
-						
-	<li><a href="{%url 'index' %}" class="act">Home</a></li>	
+						<li><a href="{%url 'index' %}" class="act">Home</a></li>	
 						<!-- Mega Menu -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Digitals <b class="caret"></b></a>
@@ -243,30 +243,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Computers</h6>
-													
-											<li><a href="{%url 'products' %}">Desktops</a></li>
-											<li><a href="{%url 'products' %}">Laptops <span>New</span></a></li> 
-											<li><a href="{%url 'products' %}">Others</a></li>
-											<li><a href="{%url 'products' %}">Accessories<span>New</span></a></li>
+											<li><a href="{%url 'desktops' %}" class="font_size_15px">Desktops</a></li>
+											<li><a href="{%url 'laptops' %}" class="font_size_15px">Laptops </a></li> 
+											<li><a href="{%url 'computerAccess' %}" class="font_size_15px">Accessories</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Phones</h6>
-											<li><a href="products1.html">Androids</a></li>
-											<li><a href="products1.html">iOS</a></li>
-											<li><a href="products1.html">Others <span>New</span></a></li>
-											<li><a href="products1.html">Accessories</a></li>
+											<li><a href="{%url 'androidphones' %}" class="font_size_15px">Android Phones</a></li>
+											<li><a href="{%url 'iosphones' %}" class="font_size_15px">iOS Phones</a></li>
+											<li><a href="{%url 'phoneAccess' %}" class="font_size_15px">Accessories</a></li>
 										</ul>
 									</div>
+
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Tablets</h6>
-											<li><a href="products2.html">Androids</a></li>
-											<li><a href="products2.html">iOS</a></li>
-											<li><a href="products2.html">Others</a></li>
-											<li><a href="products2.html">Accessories</a></li>
+											<li><a href="{%url 'androidTablets' %}" class="font_size_15px">Android Tablets</a></li>
+											<li><a href="{%url 'iosTablets' %}" class="font_size_15px">iOS Tablets</a></li>
+											<li><a href="{%url 'tabletAccess' %}" class="font_size_15px">Accessories</a></li>
 										</ul>
 									</div>
 									
@@ -286,36 +283,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<div class="row">
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
-											<h6>Home</h6>
-											<li><a href="{%url 'products' %}">TV & PlayStations</a></li>
-											<li><a href="{%url 'products' %}">AC & Fridges <span>New</span></a></li> 
-											<li><a href="{%url 'products' %}">Washing Machines</a></li>
-											<li><a href="{%url 'products' %}">Others<span>New</span></a></li>
+											<h6>Home Appliances</h6>
+											<li><a href="{%url 'tvPlaystations' %}" class="font_size_15px">TV & PlayStations</a></li>
+											<li><a href="{%url 'acFridges' %}" class="font_size_15px">AC & Fridges</a></li> 
+											<li><a href="{%url 'washingMachines' %}" class="font_size_15px">Washing Machines</a></li>
 										</ul>
 									</div>
 
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Kitchen</h6>
-											<li><a href="products1.html">Cookers</a></li>
-											<li><a href="products1.html">Grinders</a></li>
-											<li><a href="products1.html">Utensils</a></li>
-											<li><a href="products1.html">Accessories<span>New</span></a></li>
+											<li><a href="{%url 'cookers' %}" class="font_size_15px">Cookers</a></li>
+											<li><a href="{%url 'grinders' %}" class="font_size_15px">Grinders</a></li>
+											<li><a href="{%url 'utensils' %}" class="font_size_15px">Utensils</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>General</h6>
-											<li><a href="products2.html">Power</a></li>
-											<li><a href="products2.html">Camera</a></li>
-											<li><a href="products2.html">AC</a></li>
-											<li><a href="products2.html">Grinders</a></li>
+											<li><a href="{%url 'powers' %}" class="font_size_15px">Power</a></li>
+											<li><a href="{%url 'houseSeater' %}" class="font_size_15px">Home Seater</a></li>
+											<li><a href="{%url 'electricAccess' %}" class="font_size_15px">Accessories</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<div class="w3ls_products_pos">
-											<h4>30%<i>Off/-</i></h4>
+											{% comment %} <h4>30%<i>Off/-</i></h4> {% endcomment %}
 											<img src="{% static 'onlineShopStatic/images/1.jpg' %}" alt=" " class="img-responsive" />
 										</div>
 									</div>
@@ -337,35 +331,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Women's</h6>
-											<li><a href="{%url 'products' %}">Dresses</a></li>
-											<li><a href="{%url 'products' %}">Shoes <span>New</span></a></li> 
-											<li><a href="{%url 'products' %}">Bags</a></li>
-											<li><a href="{%url 'products' %}">Accessories<span>New</span></a></li>
+											<li><a href="{%url 'womendress' %}" class="font_size_15px">Women Dresses</a></li>
+											<li><a href="{%url 'womenshoes' %}" class="font_size_15px">Women Shoes</a></li> 
+											<li><a href="{%url 'womenbags' %}" class="font_size_15px">Women Bags</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Men's</h6>
-											<li><a href="products1.html">Clothes</a></li>
-											<li><a href="products1.html">Shoes</a></li>
-											<li><a href="products1.html">Bags<span>New</span></a></li>
-											<li><a href="products1.html">Accesories</i></a></li>
+											<li><a href="{%url 'mendress' %}" class="font_size_15px">Men Clothing</a></li>
+											<li><a href="{%url 'menshoes' %}" class="font_size_15px">Men Shoes</a></li>
+											<li><a href="{%url 'menbags' %}" class="font_size_15px">Men Bags</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Others</h6>
-											<li><a href="products2.html">Tv</a></li>
-											<li><a href="products2.html">Camera</a></li>
-											<li><a href="products2.html">AC</a></li>
-											<li><a href="products2.html">Grinders</a></li>
+											<li><a href="{%url 'beddings' %}" class="font_size_15px">Beddings</a></li>
+											<li><a href="{%url 'womenaccess' %}" class="font_size_15px">Women Accessories</a></li>
+											<li><a href="{%url 'menaccess' %}" class="font_size_15px">Men Accessories</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<div class="w3ls_products_pos">
-											<h4>30%<i>Off/-</i></h4>
 											<img src="{% static 'onlineShopStatic/images/Fashion.PNG' %}" alt=" " class="img-responsive" />
 										</div>
 									</div>
@@ -381,35 +371,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>New Born</h6>
-											<li><a href="{%url 'products' %}">Dresses</a></li>
-											<li><a href="{%url 'products' %}">Shoes<span>New</span></a></li> 
-											<li><a href="{%url 'products' %}">Diapers</a></li>
-											<li><a href="{%url 'products' %}">Accessories<span>New</span></a></li>
+											<li><a href="{%url 'newbornDress' %}" class="font_size_15px">New-Born Dresses</a></li>
+											<li><a href="{%url 'newbornShoes' %}" class="font_size_15px">New-Born Shoes</a></li> 
+											<li><a href="{%url 'newbornDiaper' %}" class="font_size_15px">New-Born Diapers</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Kids</h6>
-											<li><a href="products1.html">Dresses</a></li>
-											<li><a href="products1.html">Shoes</a></li>
-											<li><a href="products1.html">Accessories <span>New</span></a></li>
-											<li><a href="products1.html"><i>Summer Store</i></a></li>
+											<li><a href="{%url 'kidDress' %}" class="font_size_15px">Kid Dresses</a></li>
+											<li><a href="{%url 'kidShoes' %}" class="font_size_15px">Kid Shoes</a></li>
+											<li><a href="{%url 'toys' %}" class="font_size_15px">Toys</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Others</h6>
-											<li><a href="products2.html">Toys</a></li>
-											<li><a href="products2.html">Camera</a></li>
-											<li><a href="products2.html">AC</a></li>
-											<li><a href="products2.html">Grinders</a></li>
+											<li><a href="{%url 'newbornAccess' %}" class="font_size_15px">New-Born Accessories</a></li>
+											<li><a href="{%url 'kidAccess' %}" class="font_size_15px">Kid Accessories</a></li>
+											<li><a href="{%url 'babyCarriage' %}" class="font_size_15px">Baby Carriage</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<div class="w3ls_products_pos">
-											<h4>30%<i>Off/-</i></h4>
 											<img src="{% static 'onlineShopStatic/images/babies.jpg' %}" alt=" " class="img-responsive" />
 										</div>
 									</div>
@@ -417,6 +403,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 							</ul>
 						</li>
+
 					</ul>
 				</div>
 			</nav>
@@ -444,10 +431,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto">
                             </a>
                             <div class="caption">
-                                <h3 class="text-center">
+                                <h4 class="text-center font_weight_900">
                                     <a href="#">{{ product.name }}</a>
 									<!--<a href="{{ product.get_absolute_url }}">{{ product.name }}</a>-->	
-								</h3>
+								</h4>
                                 <p class="text-center" > # {{ product.price }}</p>
 								<div class="row">
 								<form action="#" method="post" class="col-md-6">
@@ -501,650 +488,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 
-
-			
-	<!-- //banner-bottom --> 
-	<!-- modal-video -->
-	<!--
-	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<div class="col-md-5 modal_body_left">
-							<img src="{% static 'onlineShopStatic/images/3.jpg' %}" alt=" " class="img-responsive" />
-						</div>
-						<div class="col-md-7 modal_body_right">
-							<h4>The Best Mobile Phone 3GB</h4>
-							<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-								commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-							<div class="rating">
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="modal_body_right_cart simpleCart_shelfItem">
-								<p><span>$380</span> <i class="item_price">$350</i></p>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Mobile Phone1"> 
-									<input type="hidden" name="amount" value="350.00">   
-									<button type="submit" class="w3ls-cart">Add to cart</button>
-								</form>
-							</div>
-							<h5>Color</h5>
-							<div class="color-quality">
-								<ul>
-									<li><a href="#"><span></span></a></li>
-									<li><a href="#" class="brown"><span></span></a></li>
-									<li><a href="#" class="purple"><span></span></a></li>
-									<li><a href="#" class="gray"><span></span></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
-	<div class="modal video-modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<div class="col-md-5 modal_body_left">
-							<img src="{% static 'onlineShopStatic/images/9.jpg' %}" alt=" " class="img-responsive" />
-						</div>
-						<div class="col-md-7 modal_body_right">
-							<h4>Multimedia Home Accessories</h4>
-							<p>Ut enim ad minim veniam, quis nostrud 
-								exercitation ullamco laboris nisi ut aliquip ex ea 
-								commodo consequat.Duis aute irure dolor in 
-								reprehenderit in voluptate velit esse cillum dolore 
-								eu fugiat nulla pariatur. Excepteur sint occaecat 
-								cupidatat non proident, sunt in culpa qui officia 
-								deserunt mollit anim id est laborum.</p>
-							<div class="rating">
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="modal_body_right_cart simpleCart_shelfItem">
-								<p><span>$180</span> <i class="item_price">$150</i></p>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Headphones"> 
-									<input type="hidden" name="amount" value="150.00">   
-									<button type="submit" class="w3ls-cart">Add to cart</button>
-								</form>
-							</div>
-							<h5>Color</h5>
-							<div class="color-quality">
-								<ul>
-									<li><a href="#"><span></span></a></li>
-									<li><a href="#" class="brown"><span></span></a></li>
-									<li><a href="#" class="purple"><span></span></a></li>
-									<li><a href="#" class="gray"><span></span></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
-	<div class="modal video-modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<div class="col-md-5 modal_body_left">
-							<img src="{% static 'onlineShopStatic/images/11.jpg' %}" alt=" " class="img-responsive" />
-						</div>
-						<div class="col-md-7 modal_body_right">
-							<h4>Quad Core Colorful Laptop</h4>
-							<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in 
-								reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia  deserunt.</p>
-							<div class="rating">
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="modal_body_right_cart simpleCart_shelfItem">
-								<p><span>$880</span> <i class="item_price">$850</i></p>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Laptop"> 
-									<input type="hidden" name="amount" value="850.00">   
-									<button type="submit" class="w3ls-cart">Add to cart</button>
-								</form>
-							</div>
-							<h5>Color</h5>
-							<div class="color-quality">
-								<ul>
-									<li><a href="#"><span></span></a></li>
-									<li><a href="#" class="brown"><span></span></a></li>
-									<li><a href="#" class="purple"><span></span></a></li>
-									<li><a href="#" class="gray"><span></span></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
-	<div class="modal video-modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModal3">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<div class="col-md-5 modal_body_left">
-							<img src="{% static 'onlineShopStatic/images/14.jpg' %}" alt=" " class="img-responsive" />
-						</div>
-						<div class="col-md-7 modal_body_right">
-							<h4>Cool Single Door Refrigerator </h4>
-							<p>Duis aute irure dolor inreprehenderit in voluptate velit esse cillum dolore 
-								eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<div class="rating">
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="modal_body_right_cart simpleCart_shelfItem">
-								<p><span>$950</span> <i class="item_price">$820</i></p>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Mobile Phone1"> 
-									<input type="hidden" name="amount" value="820.00">   
-									<button type="submit" class="w3ls-cart">Add to cart</button>
-								</form>
-							</div>
-							<h5>Color</h5>
-							<div class="color-quality">
-								<ul>
-									<li><a href="#"><span></span></a></li>
-									<li><a href="#" class="brown"><span></span></a></li>
-									<li><a href="#" class="purple"><span></span></a></li>
-									<li><a href="#" class="gray"><span></span></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
-	<div class="modal video-modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModal4">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<div class="col-md-5 modal_body_left">
-							<img src="{% static 'onlineShopStatic/images/17.jpg' %}" alt=" " class="img-responsive" />
-						</div>
-						<div class="col-md-7 modal_body_right">
-							<h4>New Model Mixer Grinder</h4>
-							<p>Excepteur sint occaecat laboris nisi ut aliquip ex ea 
-								commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-								eu fugiat nulla pariatur cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<div class="rating">
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="modal_body_right_cart simpleCart_shelfItem">
-								<p><span>$460</span> <i class="item_price">$450</i></p>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Mobile Phone1"> 
-									<input type="hidden" name="amount" value="450.00">   
-									<button type="submit" class="w3ls-cart">Add to cart</button>
-								</form>
-							</div>
-							<h5>Color</h5>
-							<div class="color-quality">
-								<ul>
-									<li><a href="#"><span></span></a></li>
-									<li><a href="#" class="brown"><span></span></a></li>
-									<li><a href="#" class="purple"><span></span></a></li>
-									<li><a href="#" class="gray"><span></span></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
-	<div class="modal video-modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModal5">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<div class="col-md-5 modal_body_left">
-							<img src="{% static 'onlineShopStatic/images/36.jpg' %}" alt=" " class="img-responsive" />
-						</div>
-						<div class="col-md-7 modal_body_right">
-							<h4>Dry Vacuum Cleaner</h4>
-							<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-								commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-								cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<div class="rating">
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="modal_body_right_cart simpleCart_shelfItem">
-								<p><span>$960</span> <i class="item_price">$920</i></p>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Vacuum Cleaner"> 
-									<input type="hidden" name="amount" value="920.00">   
-									<button type="submit" class="w3ls-cart">Add to cart</button>
-								</form>
-							</div>
-							<h5>Color</h5>
-							<div class="color-quality">
-								<ul>
-									<li><a href="#"><span></span></a></li>
-									<li><a href="#" class="brown"><span></span></a></li>
-									<li><a href="#" class="purple"><span></span></a></li>
-									<li><a href="#" class="gray"><span></span></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
-	<div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<div class="col-md-5 modal_body_left">
-							<img src="{% static 'onlineShopStatic/images/37.jpg' %}" alt=" " class="img-responsive" />
-						</div>
-						<div class="col-md-7 modal_body_right">
-							<h4>Kitchen & Dining Accessories</h4>
-							<p>Ut enim ad minim veniam, quis nostrud 
-								exercitation ullamco laboris nisi ut aliquip ex ea 
-								commodo consequat.Duis aute irure dolor in 
-								reprehenderit in voluptate velit esse cillum dolore 
-								eu fugiat nulla pariatur. Excepteur sint occaecat 
-								cupidatat non proident, sunt in culpa qui officia 
-								deserunt mollit anim id est laborum.</p>
-							<div class="rating">
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star-.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="{% static 'onlineShopStatic/images/star.png' %}" alt=" " class="img-responsive" />
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="modal_body_right_cart simpleCart_shelfItem">
-								<p><span>$280</span> <i class="item_price">$250</i></p>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart">
-									<input type="hidden" name="add" value="1"> 
-									<input type="hidden" name="w3ls_item" value="Induction Stove"> 
-									<input type="hidden" name="amount" value="250.00">   
-									<button type="submit" class="w3ls-cart">Add to cart</button>
-								</form>
-							</div>
-							<h5>Color</h5>
-							<div class="color-quality">
-								<ul>
-									<li><a href="#"><span></span></a></li>
-									<li><a href="#" class="brown"><span></span></a></li>
-									<li><a href="#" class="purple"><span></span></a></li>
-									<li><a href="#" class="gray"><span></span></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
 	<!-- //modal-video -->
 	<!-- banner-bottom1 -->
-	<div class="banner-bottom1">
-		<div class="agileinfo_banner_bottom1_grids">
-			<div class="col-md-7 agileinfo_banner_bottom1_grid_left">
-				<h3>Grand Opening Event With flat<span>20% <i>Discount</i></span></h3>
-				<a href="products.html">Shop Now</a>
-			</div>
-			<div class="col-md-5 agileinfo_banner_bottom1_grid_right">
-				<h4>hot deal</h4>
-				<div class="timer_wrap">
-					<div id="counter"> </div>
-				</div>
-				<script src="{% static 'onlineShopStatic/js/jquery.countdown.js' %}"></script>
-				<script src="{% static 'onlineShopStatic/js/script.js' %}"></script>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
+	
 	<!-- //banner-bottom1 --> 
 	<!-- special-deals -->
-	<div class="special-deals">
-		<div class="container">
-			<h2>Special Deals</h2>
-			<div class="w3agile_special_deals_grids">
-				<div class="col-md-7 w3agile_special_deals_grid_left">
-					<div class="w3agile_special_deals_grid_left_grid">
-						<img src="{% static 'onlineShopStatic/images/21.jpg' %}" alt=" " class="img-responsive" />
-						<div class="w3agile_special_deals_grid_left_grid_pos1">
-							<h5>30%<span>Off/-</span></h5>
-						</div>
-						<div class="w3agile_special_deals_grid_left_grid_pos">
-							<h4>We Offer <span>Best Products</span></h4>
-						</div>
-					</div>
-					<div class="wmuSlider example1">
-						<div class="wmuSliderWrapper">
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
-								<div class="banner-wrap">
-									<div class="w3agile_special_deals_grid_left_grid1">
-										<img src="{% static 'onlineShopStatic/images/t1.png' %}" alt=" " class="img-responsive" />
-										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
-											eum fugiat quo voluptas nulla pariatur</p>
-										<h4>Laura</h4>
-									</div>
-								</div>
-							</article>
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
-								<div class="banner-wrap">
-									<div class="w3agile_special_deals_grid_left_grid1">
-										<img src="{% static 'onlineShopStatic/images/t2.png' %}" alt=" " class="img-responsive" />
-										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
-											eum fugiat quo voluptas nulla pariatur</p>
-										<h4>Michael</h4>
-									</div>
-								</div>
-							</article>
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
-								<div class="banner-wrap">
-									<div class="w3agile_special_deals_grid_left_grid1">
-										<img src="{% static 'onlineShopStatic/images/t3.png' %}" alt=" " class="img-responsive" />
-										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
-											eum fugiat quo voluptas nulla pariatur</p>
-										<h4>Rosy</h4>
-									</div>
-								</div>
-							</article>
-						</div>
-					</div>
-						<script src="{% static 'onlineShopStatic/js/jquery.wmuSlider.js' %}"></script> 
-						<script>
-							$('.example1').wmuSlider();         
-						</script> 
-				</div>
-				<div class="col-md-5 w3agile_special_deals_grid_right">
-					<img src="{% static 'onlineShopStatic/images/20.jpg' %}" alt=" " class="img-responsive" />
-					<div class="w3agile_special_deals_grid_right_pos">
-						<h4>Women's <span>Special</span></h4>
-						<h5>save up <span>to</span> 30%</h5>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-	<!-- //special-deals -->
-	<!-- new-products -->
-	<div class="new-products">
-		<div class="container">
-			<h3>New Products</h3>
-			<div class="agileinfo_new_products_grids">
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="{% static 'onlineShopStatic/images/25.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/23.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/24.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/22.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/26.jpg' %}" alt=" " class="img-responsive" /> 
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Laptops</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$520</span> <i class="item_price">$500</i></p>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart">
-								<input type="hidden" name="add" value="1"> 
-								<input type="hidden" name="w3ls_item" value="Red Laptop"> 
-								<input type="hidden" name="amount" value="500.00">   
-								<button type="submit" class="w3ls-cart">Add to cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="{% static 'onlineShopStatic/images/27.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/28.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/29.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/30.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/31.jpg' %}" alt=" " class="img-responsive" /> 
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Black Phone</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$380</span> <i class="item_price">$370</i></p>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart">
-								<input type="hidden" name="add" value="1"> 
-								<input type="hidden" name="w3ls_item" value="Black Phone"> 
-								<input type="hidden" name="amount" value="370.00">   
-								<button type="submit" class="w3ls-cart">Add to cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="{% static 'onlineShopStatic/images/34.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/33.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/32.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/35.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/36.jpg' %}" alt=" " class="img-responsive" /> 
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Kids Toy</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$150</span> <i class="item_price">$100</i></p>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart">
-								<input type="hidden" name="add" value="1"> 
-								<input type="hidden" name="w3ls_item" value="Kids Toy"> 
-								<input type="hidden" name="amount" value="100.00">   
-								<button type="submit" class="w3ls-cart">Add to cart</button>
-							</form>
-						</div>  
-					</div>
-				</div>
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="{% static 'onlineShopStatic/images/37.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/38.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/39.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/40.jpg' %}" alt=" " class="img-responsive" />
-							<img src="{% static 'onlineShopStatic/images/41.jpg' %}" alt=" " class="img-responsive" /> 
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Induction Stove</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$280</span> <i class="item_price">$250</i></p>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart">
-								<input type="hidden" name="add" value="1"> 
-								<input type="hidden" name="w3ls_item" value="Induction Stove"> 
-								<input type="hidden" name="amount" value="250.00">   
-								<button type="submit" class="w3ls-cart">Add to cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
+	
 	<!-- //new-products -->
 	<!-- top-brands -->
 	<div class="top-brands">

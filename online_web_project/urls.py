@@ -29,7 +29,8 @@ from django.urls import include, path
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('cart', include('cart.urls')), #cart URL should be specified first b
+    path('cart/', include('cart.urls')), #cart URL should be specified first inside the main project since its another project and must be placed before the shop urls pattern
+    path('orders/', include('orders.urls')), #orders URL should be specified first inside the main project since its another project and must be placed before the shop urls pattern
     path("", include("onlineShop.urls")),
 ]
 

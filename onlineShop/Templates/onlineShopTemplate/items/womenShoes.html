@@ -1,0 +1,47 @@
+{% extends "onlineShopTemplate/layout.html" %}
+ {% load static from staticfiles %}
+ {% block title %}
+    Women Shoes
+ {% endblock %}
+ {% block content %}
+
+<!-- //navigation -->
+	<!-- banner -->
+	<div class="banner-bottom">
+		<div class="container">
+				{% for product in subcategories %}
+                      <div class="col-md-3">
+					  	
+                     <div class="thumbnail modal_body_right_cart simpleCart_shelfItem">
+                            <a href="#"> <!--<a href="{{ product.get_absolute_url }}">-->	
+                                <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto">
+                            </a>
+                            <div class="caption">
+                                <h4 class="text-center font_weight_900">
+                                    <a href="#">{{ product.name }}</a>
+									<!--<a href="{{ product.get_absolute_url }}">{{ product.name }}</a>-->	
+								</h4>
+                                <p class="text-center" > # {{ product.price }}</p>
+								<div class="row">
+								<form action="#" method="post" class="col-md-6">
+									<input type="hidden" name="cmd" value="_cart">
+									<input type="hidden" name="add" value= "1"> 
+									<input type="hidden" name="w3ls_item" value="{{ product.name }}"> 
+									<input type="hidden" name="amount" value="{{ product.price }}">
+									<div class="row">  
+									<a class="w3ls-cart btn btn-primary col-md-offset-6" style="" href="{% url 'productDetails' product.id %}">More Detail</a>
+									{% comment %} <button type="submit" class="w3ls-cart" style="color: white; background-color:#ff5063;">Add to cart</button> {% endcomment %}
+									</div>
+								</form>
+                            </div>
+							</div>
+                        </div>
+						
+                      </div>
+					  
+                  {% endfor %}
+
+	<!-- //Related Products -->
+	<!-- newsletter -->
+
+ {% endblock %}

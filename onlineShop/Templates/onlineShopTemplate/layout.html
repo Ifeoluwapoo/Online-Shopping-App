@@ -188,29 +188,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Computers</h6>
-											<li><a href="{%url 'products' %}">Desktops</a></li>
-											<li><a href="{%url 'products' %}">Laptops <span>New</span></a></li> 
-											<li><a href="{%url 'products' %}">Others</a></li>
-											<li><a href="{%url 'products' %}">Accessories<span>New</span></a></li>
+											<li><a href="{%url 'desktops' %}" class="font_size_15px">Desktops</a></li>
+											<li><a href="{%url 'laptops' %}" class="font_size_15px">Laptops </a></li> 
+											<li><a href="{%url 'computerAccess' %}" class="font_size_15px">Accessories</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Phones</h6>
-											<li><a href="products1.html">Androids</a></li>
-											<li><a href="products1.html">iOS</a></li>
-											<li><a href="products1.html">Others <span>New</span></a></li>
-											<li><a href="products1.html">Accessories</a></li>
+											<li><a href="{%url 'androidphones' %}" class="font_size_15px">Android Phones</a></li>
+											<li><a href="{%url 'iosphones' %}" class="font_size_15px">iOS Phones</a></li>
+											<li><a href="{%url 'phoneAccess' %}" class="font_size_15px">Accessories</a></li>
 										</ul>
 									</div>
+
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Tablets</h6>
-											<li><a href="products2.html">Androids</a></li>
-											<li><a href="products2.html">iOS</a></li>
-											<li><a href="products2.html">Others</a></li>
-											<li><a href="products2.html">Accessories</a></li>
+											<li><a href="{%url 'androidTablets' %}" class="font_size_15px">Android Tablets</a></li>
+											<li><a href="{%url 'iosTablets' %}" class="font_size_15px">iOS Tablets</a></li>
+											<li><a href="{%url 'tabletAccess' %}" class="font_size_15px">Accessories</a></li>
 										</ul>
 									</div>
 									
@@ -230,36 +228,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<div class="row">
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
-											<h6>Home</h6>
-											<li><a href="{%url 'products' %}">TV & PlayStations</a></li>
-											<li><a href="{%url 'products' %}">AC & Fridges <span>New</span></a></li> 
-											<li><a href="{%url 'products' %}">Washing Machines</a></li>
-											<li><a href="{%url 'products' %}">Others<span>New</span></a></li>
+											<h6>Home Appliances</h6>
+											<li><a href="{%url 'tvPlaystations' %}" class="font_size_15px">TV & PlayStations</a></li>
+											<li><a href="{%url 'acFridges' %}" class="font_size_15px">AC & Fridges</a></li> 
+											<li><a href="{%url 'washingMachines' %}" class="font_size_15px">Washing Machines</a></li>
 										</ul>
 									</div>
 
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Kitchen</h6>
-											<li><a href="products1.html">Cookers</a></li>
-											<li><a href="products1.html">Grinders</a></li>
-											<li><a href="products1.html">Utensils</a></li>
-											<li><a href="products1.html">Accessories<span>New</span></a></li>
+											<li><a href="{%url 'cookers' %}" class="font_size_15px">Cookers</a></li>
+											<li><a href="{%url 'grinders' %}" class="font_size_15px">Grinders</a></li>
+											<li><a href="{%url 'utensils' %}" class="font_size_15px">Utensils</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>General</h6>
-											<li><a href="products2.html">Power</a></li>
-											<li><a href="products2.html">Camera</a></li>
-											<li><a href="products2.html">AC</a></li>
-											<li><a href="products2.html">Grinders</a></li>
+											<li><a href="{%url 'powers' %}" class="font_size_15px">Power</a></li>
+											<li><a href="{%url 'houseSeater' %}" class="font_size_15px">Home Seater</a></li>
+											<li><a href="{%url 'electricAccess' %}" class="font_size_15px">Accessories</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<div class="w3ls_products_pos">
-											<h4>30%<i>Off/-</i></h4>
+											{% comment %} <h4>30%<i>Off/-</i></h4> {% endcomment %}
 											<img src="{% static 'onlineShopStatic/images/1.jpg' %}" alt=" " class="img-responsive" />
 										</div>
 									</div>
@@ -281,35 +276,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Women's</h6>
-											<li><a href="{%url 'products' %}">Dresses</a></li>
-											<li><a href="{%url 'products' %}">Shoes <span>New</span></a></li> 
-											<li><a href="{%url 'products' %}">Bags</a></li>
-											<li><a href="{%url 'products' %}">Accessories<span>New</span></a></li>
+											<li><a href="{%url 'womendress' %}" class="font_size_15px">Women Dresses</a></li>
+											<li><a href="{%url 'womenshoes' %}" class="font_size_15px">Women Shoes</a></li> 
+											<li><a href="{%url 'womenbags' %}" class="font_size_15px">Women Bags</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Men's</h6>
-											<li><a href="products1.html">Clothes</a></li>
-											<li><a href="products1.html">Shoes</a></li>
-											<li><a href="products1.html">Bags<span>New</span></a></li>
-											<li><a href="products1.html">Accesories</i></a></li>
+											<li><a href="{%url 'mendress' %}" class="font_size_15px">Men Clothing</a></li>
+											<li><a href="{%url 'menshoes' %}" class="font_size_15px">Men Shoes</a></li>
+											<li><a href="{%url 'menbags' %}" class="font_size_15px">Men Bags</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Others</h6>
-											<li><a href="products2.html">Tv</a></li>
-											<li><a href="products2.html">Camera</a></li>
-											<li><a href="products2.html">AC</a></li>
-											<li><a href="products2.html">Grinders</a></li>
+											<li><a href="{%url 'beddings' %}" class="font_size_15px">Beddings</a></li>
+											<li><a href="{%url 'womenaccess' %}" class="font_size_15px">Women Accessories</a></li>
+											<li><a href="{%url 'menaccess' %}" class="font_size_15px">Men Accessories</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<div class="w3ls_products_pos">
-											<h4>30%<i>Off/-</i></h4>
 											<img src="{% static 'onlineShopStatic/images/Fashion.PNG' %}" alt=" " class="img-responsive" />
 										</div>
 									</div>
@@ -325,35 +316,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>New Born</h6>
-											<li><a href="{%url 'products' %}">Dresses</a></li>
-											<li><a href="{%url 'products' %}">Shoes<span>New</span></a></li> 
-											<li><a href="{%url 'products' %}">Diapers</a></li>
-											<li><a href="{%url 'products' %}">Accessories<span>New</span></a></li>
+											<li><a href="{%url 'newbornDress' %}" class="font_size_15px">New-Born Dresses</a></li>
+											<li><a href="{%url 'newbornShoes' %}" class="font_size_15px">New-Born Shoes</a></li> 
+											<li><a href="{%url 'newbornDiaper' %}" class="font_size_15px">New-Born Diapers</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Kids</h6>
-											<li><a href="products1.html">Dresses</a></li>
-											<li><a href="products1.html">Shoes</a></li>
-											<li><a href="products1.html">Accessories <span>New</span></a></li>
-											<li><a href="products1.html"><i>Summer Store</i></a></li>
+											<li><a href="{%url 'kidDress' %}" class="font_size_15px">Kid Dresses</a></li>
+											<li><a href="{%url 'kidShoes' %}" class="font_size_15px">Kid Shoes</a></li>
+											<li><a href="{%url 'toys' %}" class="font_size_15px">Toys</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<ul class="multi-column-dropdown">
 											<h6>Others</h6>
-											<li><a href="products2.html">Toys</a></li>
-											<li><a href="products2.html">Camera</a></li>
-											<li><a href="products2.html">AC</a></li>
-											<li><a href="products2.html">Grinders</a></li>
+											<li><a href="{%url 'newbornAccess' %}" class="font_size_15px">New-Born Accessories</a></li>
+											<li><a href="{%url 'kidAccess' %}" class="font_size_15px">Kid Accessories</a></li>
+											<li><a href="{%url 'babyCarriage' %}" class="font_size_15px">Baby Carriage</a></li>
 										</ul>
 									</div>
 									
 									<div class="col-sm-3">
 										<div class="w3ls_products_pos">
-											<h4>30%<i>Off/-</i></h4>
 											<img src="{% static 'onlineShopStatic/images/babies.jpg' %}" alt=" " class="img-responsive" />
 										</div>
 									</div>
